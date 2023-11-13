@@ -47,6 +47,7 @@ const Task = (
             
             <DeleteIcon
                 style={{ cursor: 'pointer'}}
+                onClick={()=>deleteTask(task.id)}
             />
         </div>
     )
