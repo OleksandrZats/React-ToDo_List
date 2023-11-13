@@ -1,6 +1,5 @@
 import React from "react";
 import Task from "../Task/Task";
-import List from '@mui/material/List';
 import flexCentered from "../../styleUtils/flexCentered";
 
 const TaskList = (
