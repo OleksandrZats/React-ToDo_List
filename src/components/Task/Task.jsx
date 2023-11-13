@@ -1,8 +1,6 @@
 import React from "react";
-import TextField from '@mui/material/TextField';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import flexCentered from "../../styleUtils/flexCentered";
 import './task.scss';
 
 const Task = (
