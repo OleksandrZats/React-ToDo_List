@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Filter from "./components/Filter/Filter";
 import filterList from "./utils/filterList";
 import flexCentered from "./styleUtils/flexCentered";
-import { changeElementStatus, deleteElementFromArray } from "./utils/performTask";
+import { changeElementStatus, deleteElementFromArray, changeRecordValue, makeRecordEditable, makeRecordNotEditable } from "./utils/performTask";
 
 function App() {
     const [list, setList] = useState([])
@@ -15,6 +15,9 @@ function App() {
 
     const deleteTask = (id) => setList(deleteElementFromArray(list, id))
     const changeTaskStatus = (id) => setList(changeElementStatus(list, id))
+    const makeTaskEditable = (id) => setList(makeRecordEditable(list, id))
+    const makeTaskNotEditable = (id) => setList(makeRecordNotEditable(list, id))
+    const changeTaskText = (id, value) => setList(changeRecordValue(list, id, value))
 
     const addTaskToArray = (task) => setList([...list, task])
 
@@ -30,6 +33,9 @@ function App() {
                 filteredList={filteredList}
                 deleteTask={deleteTask}
                 changeTaskStatus={changeTaskStatus}
+                makeTaskEditable={makeTaskEditable}
+                makeTaskNotEditable={makeTaskNotEditable}
+                changeTaskText={changeTaskText}
             />
         </div>
     );

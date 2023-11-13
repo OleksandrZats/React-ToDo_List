@@ -11,6 +11,7 @@ const Input = ({ input = '', setInput = () => { }, addTaskToArray = () => { } })
                 id: uuidv4(),
                 taskText: input,
                 isDone: false,
+                isEditable: false,
             }
         )
         setInput('')

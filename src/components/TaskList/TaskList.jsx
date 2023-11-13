@@ -3,7 +3,16 @@ import Task from "../Task/Task";
 import List from '@mui/material/List';
 import flexCentered from "../../styleUtils/flexCentered";
 
-const TaskList = ({ filteredList = [], deleteTask = () => { }, changeTaskStatus = () => { } }) => {
+const TaskList = (
+        { 
+            filteredList = [], 
+            deleteTask = () => { }, 
+            changeTaskStatus = () => { },
+            makeTaskEditable = () => { },
+            makeTaskNotEditable = () => { },
+            changeTaskText = () =>{ }
+        }
+    ) => {
     return (
         <List
             sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
@@ -15,6 +24,9 @@ const TaskList = ({ filteredList = [], deleteTask = () => { }, changeTaskStatus 
                     task={task}
                     deleteTask={deleteTask}
                     changeTaskStatus={changeTaskStatus}
+                    makeTaskEditable={makeTaskEditable}
+                    makeTaskNotEditable={makeTaskNotEditable}
+                    changeTaskText={changeTaskText}
                 />
             )}
         </List>
