@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Filter from "./components/Filter/Filter";
 import filterList from "./utils/filterList";
 import flexCentered from "./styleUtils/flexCentered";
+import "./index.scss"
 import { changeElementStatus, deleteElementFromArray, changeRecordValue, makeRecordEditable, makeRecordNotEditable } from "./utils/performTask";
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
     const filteredList = filterList(list, filter)
 
     const deleteTask = (id) => setList(deleteElementFromArray(list, id))
-    const changeTaskStatus = (id) => setList(changeElementStatus(list, id))
+    const changeTaskStatus = (id) => {console.log(1234); setList(changeElementStatus(list, id))}
     const makeTaskEditable = (id) => setList(makeRecordEditable(list, id))
     const makeTaskNotEditable = (id) => setList(makeRecordNotEditable(list, id))
     const changeTaskText = (id, value) => setList(changeRecordValue(list, id, value))
@@ -23,6 +24,7 @@ function App() {
 
     return (
         <div className="App" style={flexCentered}>
+            <h1 style={{fontFamily:'sans-serif', fontSize:'30pt'}}>TO-DO LIST</h1>
             <Filter setFilter={setFilter} />
             <Input
                 input={input}

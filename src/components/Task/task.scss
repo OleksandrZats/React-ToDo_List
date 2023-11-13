@@ -1,0 +1,46 @@
+.task{
+    fill: #38404B;
+    border-radius: 16px;
+    box-shadow: 5px 5px 13px 0px rgba(48, 54, 64, 0.90), -5px -5px 10px 0px rgba(64, 74, 86, 0.90), 5px -5px 10px 0px rgba(48, 54, 64, 0.20), -5px 5px 10px 0px rgba(48, 54, 64, 0.20), -1px -1px 2px 0px rgba(48, 54, 64, 0.50) inset, 1px 1px 2px 0px rgba(64, 74, 86, 0.30) inset;
+
+    width: 350px;
+    padding: 20px 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    &__done{
+        box-shadow: 5px 5px 13px 0px rgba(48, 54, 64, 0.90) inset, -5px -5px 10px 0px rgba(64, 74, 86, 0.90) inset, 5px -5px 10px 0px rgba(48, 54, 64, 0.20) inset, -5px 5px 10px 0px rgba(48, 54, 64, 0.20) inset, -1px -1px 2px 0px rgba(48, 54, 64, 0.50), 1px 1px 2px 0px rgba(64, 74, 86, 0.30);
+    }
+    &__text{
+        text-decoration: none;
+        user-select: none;
+        width:100%;
+        text-align: center;
+    }
+    &__text-done{        
+        text-decoration: line-through;
+        user-select: none;
+        width:100%;
+        text-align: center;
+    }
+    &__input{    
+        background: #38404B;    
+        border: none;
+        color: #a1c8ff;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 15pt;
+
+        outline: none;
+        
+        &::placeholder {
+            color: #a1c8ff;
+            opacity: 0.5;
+        }
+    }
+    &__outline{
+        border: 1px solid #a1c8ff;
+    }
+}

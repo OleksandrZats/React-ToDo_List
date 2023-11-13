@@ -14,8 +14,8 @@ const TaskList = (
         }
     ) => {
     return (
-        <List
-            sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+        <div
+            sx={{ width: '100%', maxWidth: 360 }}
             style={flexCentered}
         >
             {filteredList.map((task) =>
@@ -29,7 +29,7 @@ const TaskList = (
                     changeTaskText={changeTaskText}
                 />
             )}
-        </List>
+        </div>
     )
 }
 

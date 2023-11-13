@@ -16,17 +16,17 @@ const Filter = ({ setFilter = () => { } }) => {
         >
             <FormControlLabel
                 value={filtersEnum.all}
-                control={<Radio />}
+                control={<Radio sx={{color: "#a1c8ff", '&.Mui-checked': {color: "#a1c8ff" }}}/>}
                 label="All"
             />
             <FormControlLabel
                 value={filtersEnum.done}
-                control={<Radio />}
+                control={<Radio sx={{color: "#a1c8ff", '&.Mui-checked': {color: "#a1c8ff" }}}/>}
                 label="Done"
             />
             <FormControlLabel
                 value={filtersEnum.notdone}
-                control={<Radio />}
+                control={<Radio sx={{color: "#a1c8ff", '&.Mui-checked': {color: "#a1c8ff" }}}/>}
                 label="Not done"
             />
         </RadioGroup>

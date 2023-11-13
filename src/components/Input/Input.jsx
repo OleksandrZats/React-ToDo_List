@@ -1,6 +1,6 @@
 import React from "react";
 import { v4 as uuidv4 } from 'uuid';
-import TextField from '@mui/material/TextField';
+import './input.scss'
 
 const Input = ({ input = '', setInput = () => { }, addTaskToArray = () => { } }) => {
     const onInputChange = (value) => setInput(value)
@@ -17,12 +17,11 @@ const Input = ({ input = '', setInput = () => { }, addTaskToArray = () => { } })
         setInput('')
     }
     return (
-        <TextField
-            id="standard-basic"
-            label="Standard"
-            variant="standard"
+        <input
+            className="input"
             type="text"
-            style={{ minWidth: '350px' }}
+            style={{ minWidth: '350px', margin:'20px' }}
+            placeholder="Add new task"
             value={input}
             onKeyUp={onKeyUp}
             onChange={(e) => {onInputChange(e.target.value)}}
