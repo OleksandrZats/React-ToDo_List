@@ -25,7 +25,7 @@ const Task = (
         >
             {task.isEditable ?
                 <input
-                    className= {(task.isDone ? "task__text-done" : "task__text") + " task__input"}
+                    className= {"task__text" + (task.isDone ? " task__text-done " : " task__text-notdone ") + " task__input"}
                     type="text"
                     value={task.taskText}
                     onKeyUp={onKeyUp}
@@ -37,7 +37,7 @@ const Task = (
                     onClick={() =>{makeTaskEditable(task.id)}}
                 />
                 <div
-                    className= {task.isDone ? "task__text-done" : "task__text"}
+                    className= {"task__text" + (task.isDone ? " task__text-done " : " task__text-notdone ")}
                     onClick={() =>changeTaskStatus(task.id)}
                 >
                     {task.taskText}
