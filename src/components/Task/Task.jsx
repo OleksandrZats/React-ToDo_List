@@ -1,56 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import './task.scss';
 
-const Task = (
-        { 
-            task = {}, 
-            deleteTask = () => { }, 
-            changeTaskStatus = () => { }, 
-            makeTaskEditable = () => { },
-            makeTaskNotEditable = () => { },
-            changeTaskText = () =>{ }
-        }
-    ) => {
+const Task = ({
+    task = {},
+    deleteTask = () => {},
+    changeTaskStatus = () => {},
+    changeTaskText = () => {},
+}) => {
+    const [input, setInput] = useState('');
+    const [isEditMode, setEditMode] = useState(false);
+    const preparePrevValue = () => {
+        setInput(task.taskText);
+        setEditMode(true);
+    }
     const onKeyUp = e => {
         if (e.key !== 'Enter') return;
-        if (!task.taskText) {deleteTask(task.id); return;}
-        makeTaskNotEditable(task.id)
-    }
+        if (input) changeTaskText(task.id, input);
+        setEditMode(false);
+    };
     return (
         <div
-            className= {"task" + (task.isDone ? " task__done " : "") + (task.isEditable ? " task__outline ": "")}
+            className={`task${task.isDone ? ' task__done' : ''}${task.isEditable ? ' task__outline' : ''}`}
             id={task.id}
         >
-            {task.isEditable ?
+            {isEditMode ?
                 <input
-                    className= {"task__text" + (task.isDone ? " task__text-done " : " task__text-notdone ") + " task__input"}
+                    className={`task__text task__input${task.isDone ? ' task__text-done' : ' task__text-notdone'}`}
                     type="text"
-                    value={task.taskText}
+                    value={input}
                     onKeyUp={onKeyUp}
-                    onChange={(e)=>changeTaskText(task.id, e.target.value)}
+                    onChange={(e) => setInput(e.target.value)}
                 /> :
                 <>
-                <EditIcon
-                    style={{ cursor: 'pointer'}}
-                    onClick={() =>{makeTaskEditable(task.id)}}
-                />
-                <div
-                    className= {"task__text" + (task.isDone ? " task__text-done " : " task__text-notdone ")}
-                    onClick={() =>changeTaskStatus(task.id)}
-                >
-                    {task.taskText}
-                </div>
+                    <EditIcon
+                        style={{ cursor: 'pointer' }}
+                        onClick={preparePrevValue}
+                    />
+                    <div
+                        className={`task__text${task.isDone ? ' task__text-done' : ' task__text-notdone'}`}
+                        onClick={() => changeTaskStatus(task.id)}
+                    >
+                        {task.taskText}
+                    </div>
                 </>
             }
-            
+
             <DeleteIcon
-                style={{ cursor: 'pointer'}}
-                onClick={()=>deleteTask(task.id)}
+                style={{ cursor: 'pointer' }}
+                onClick={() => deleteTask(task.id)}
             />
         </div>
-    )
-}
+    );
+};
 
-export default Task
+export default Task;

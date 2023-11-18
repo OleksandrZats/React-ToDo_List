@@ -4,8 +4,8 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import filtersEnum from "../../constants/filtersEnum";
 
-const Filter = ({ setFilter = () => { } }) => {
-    const onRadioChange = (value) => setFilter(value)
+const Filter = ({ setFilter = () => {} }) => {
+    const onRadioChange = (value) => setFilter(value);
     return (
         <RadioGroup
             row
@@ -16,21 +16,21 @@ const Filter = ({ setFilter = () => { } }) => {
         >
             <FormControlLabel
                 value={filtersEnum.all}
-                control={<Radio sx={{color: "#a1c8ff", '&.Mui-checked': {color: "#a1c8ff" }}}/>}
+                control={<Radio sx={{ color: "#a1c8ff", '&.Mui-checked': { color: "#a1c8ff" } }} />}
                 label="All"
             />
             <FormControlLabel
                 value={filtersEnum.done}
-                control={<Radio sx={{color: "#a1c8ff", '&.Mui-checked': {color: "#a1c8ff" }}}/>}
+                control={<Radio sx={{ color: "#a1c8ff", '&.Mui-checked': { color: "#a1c8ff" } }} />}
                 label="Done"
             />
             <FormControlLabel
                 value={filtersEnum.notdone}
-                control={<Radio sx={{color: "#a1c8ff", '&.Mui-checked': {color: "#a1c8ff" }}}/>}
+                control={<Radio sx={{ color: "#a1c8ff", '&.Mui-checked': { color: "#a1c8ff" } }} />}
                 label="Not done"
             />
         </RadioGroup>
-    )
-}
+    );
+};
 
-export default Filter
+export default Filter;

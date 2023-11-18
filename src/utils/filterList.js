@@ -8,9 +8,9 @@ const filterList = (list, filter) => {
             case filtersEnum.notdone:
                 return task.isDone === false;          
             default:
-                return true
-        }
-    })
-}
+                return true;
+        };
+    });
+};
 
-export default filterList
+export default filterList;
