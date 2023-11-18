@@ -21,7 +21,7 @@ const Task = ({
     };
     return (
         <div
-            className={`task${task.isDone ? ' task__done' : ''}${task.isEditable ? ' task__outline' : ''}`}
+            className={`task${task.isDone ? ' task__done' : ''}${isEditMode ? ' task__outline' : ''}`}
             id={task.id}
         >
             {isEditMode ?
@@ -31,6 +31,7 @@ const Task = ({
                     value={input}
                     onKeyUp={onKeyUp}
                     onChange={(e) => setInput(e.target.value)}
+                    autoFocus
                 /> :
                 <>
                     <EditIcon
